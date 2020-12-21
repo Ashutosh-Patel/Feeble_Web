@@ -24,10 +24,13 @@ module.exports = gql`
     }
 
     type Query{
-        getBlogs: [Blog]
+        getBlogs: [Blog],
+        getBlog(blogId: ID!): Blog
     }
     type Mutation {
         register(registerInput: RegisterInput): User!
-        
+        login(username: String!, password: String!) : User!
+        createBlog(body: String!): Blog!
+        deleteBlog(blogId: ID!): String!
     }
 `;
